@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { assets } from "../assets/assets";
 import { useDispatch } from "react-redux";
 import { itemActions } from "../redux/reducers/itemReducer";
+import { cartActions } from "../redux/reducers/cartReducer";
 
 const ItemCard = ({ id, title, desc, imageUrl, price, rating, category }) => {
   const [isEditing, setIsEditing] = useState(false);
@@ -101,7 +102,22 @@ const ItemCard = ({ id, title, desc, imageUrl, price, rating, category }) => {
                 {rating} ★
               </span>
             </div>
-            <button className="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-4 px-4 rounded-t-md">
+            <button
+              onClick={() =>
+                dispatch(
+                  cartActions.addToCart({
+                    id,
+                    title,
+                    desc,
+                    imageUrl,
+                    price,
+                    rating,
+                    category,
+                  })
+                )
+              }
+              className="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-4 px-4 rounded-t-md"
+            >
               Add to Cart
             </button>
 
