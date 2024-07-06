@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { assets } from "../assets/assets";
 import { Link, Outlet } from "react-router-dom";
 import { Toaster } from "react-hot-toast";

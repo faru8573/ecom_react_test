@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   getInitialItemsAync,
-  itemActions,
   itemSelector,
 } from "../redux/reducers/itemReducer";
 import ItemCard from "../components/ItemCard";
