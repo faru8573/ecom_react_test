@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { assets } from "../assets/assets";
 import { useDispatch } from "react-redux";
 import { itemActions } from "../redux/reducers/itemReducer";
-import { cartActions } from "../redux/reducers/cartReducer";
+
 import { Link } from "react-router-dom";
 
 const ItemCard = ({ id, title, desc, imageUrl, price, rating, category }) => {
