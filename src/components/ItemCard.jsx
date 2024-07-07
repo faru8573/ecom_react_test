@@ -3,6 +3,7 @@ import { assets } from "../assets/assets";
 import { useDispatch } from "react-redux";
 import { itemActions } from "../redux/reducers/itemReducer";
 import { cartActions } from "../redux/reducers/cartReducer";
+import { Link } from "react-router-dom";
 
 const ItemCard = ({ id, title, desc, imageUrl, price, rating, category }) => {
   const [isEditing, setIsEditing] = useState(false);
@@ -102,24 +103,24 @@ const ItemCard = ({ id, title, desc, imageUrl, price, rating, category }) => {
                 {rating} ★
               </span>
             </div>
-            <button
-              onClick={() =>
-                dispatch(
-                  cartActions.addToCart({
-                    id,
-                    title,
-                    desc,
-                    imageUrl,
-                    price,
-                    rating,
-                    category,
-                  })
-                )
-              }
-              className="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold p-2 rounded-t-md"
-            >
-              Add to Cart
-            </button>
+            {/* <button
+                onClick={() =>
+                  dispatch(
+                    cartActions.addToCart({
+                      id,
+                      title,
+                      desc,
+                      imageUrl,
+                      price,
+                      rating,
+                      category,
+                    })
+                  )
+                }
+                className="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold p-2 rounded-t-md"
+              >
+                Add to Cart
+              </button> */}
 
             <div className="flex justify-between py-2 px-2 rounded-b-md mt-2">
               <img
@@ -130,6 +131,12 @@ const ItemCard = ({ id, title, desc, imageUrl, price, rating, category }) => {
                 alt=""
                 className="w-10 h-10 object-contain border-2 hover:border-yellow-500 p-2 rounded-full"
               />
+              <Link
+                to={`/details/${id}`}
+                className="bg-purple-500 hover:bg-purple-600 text-white font-bold p-2 rounded"
+              >
+                More Details
+              </Link>
               <img
                 onClick={() => {
                   setIsEditing(true);
