@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import CartPage from "./pages/CartPage";
 import ErrorPage from "./pages/ErrorPage";
+import AddProduct from "./pages/AddProduct";
 
 const App = () => {
   const router = createBrowserRouter([
@@ -14,6 +15,7 @@ const App = () => {
       children: [
         { index: true, element: <Home /> },
         { path: "/cart", element: <CartPage /> },
+        { path: "/addproduct", element: <AddProduct /> },
       ],
     },
   ]);

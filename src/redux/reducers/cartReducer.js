@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import toast from "react-hot-toast";
 
 const initialState = {
   cartItems: [],
@@ -10,14 +11,15 @@ const cartSlice = createSlice({
   reducers: {
     addToCart: (state, action) => {
       state.cartItems = [...state.cartItems, action.payload];
+      toast.success("Item added to Cart");
     },
     removeFromCart: (state, action) => {
-      console.log(action);
       const filteredItems = state.cartItems.filter(
         (item) => item.id !== action.payload
       );
 
       state.cartItems = filteredItems;
+      toast.success("Item successfully removed");
     },
   },
   extraReducers: (builder) => {},

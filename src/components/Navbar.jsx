@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { assets } from "../assets/assets";
 import { Link, Outlet } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
@@ -7,19 +7,32 @@ import { cartSelector } from "../redux/reducers/cartReducer";
 
 const Navbar = () => {
   const isAuthenticated = false;
+  const [isOpen, setIsOpen] = useState(false);
 
   const { cartItems } = useSelector(cartSelector);
-  console.log(cartItems);
+
   return (
     <div className="flex flex-col min-h-screen">
       <Toaster position="top-center" reverseOrder={false} />
+
       <div className="bg-slate-600 w-full items-center fixed top-0">
+        {isOpen}
+
         <div className="container mx-auto px-2 flex justify-between py-1 items-center">
           <Link to={"/"}>
             <p className="text-gray-300 text-2xl font-bold">Ecom</p>
           </Link>
 
           <div className="flex gap-4 items-center">
+            <Link
+              to="/addproduct"
+              className="text-gray-300 font-semibold hover:text-yellow-400 flex items-center"
+            >
+              <div className="bg-green-500 rounded-full text-xl font-bold text-white w-[30px] h-[30px] text-center">
+                +
+              </div>
+              Add Product
+            </Link>
             <Link
               to="/myorders"
               className="text-gray-300 font-semibold hover:text-yellow-400"

@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 const initialState = {
   items: [],
@@ -30,6 +31,7 @@ const itemSlice = createSlice({
       );
 
       state.items = filteredItems;
+      toast.success("deleted Successfully");
     },
     updateItem: (state, action) => {
       console.log(action);
@@ -49,6 +51,7 @@ const itemSlice = createSlice({
           imageUrl,
         };
         state.items[findItemIndex] = updatedItem;
+        toast.success("updated Successfully");
       }
     },
   },

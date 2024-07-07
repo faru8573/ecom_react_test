@@ -116,19 +116,19 @@ const ItemCard = ({ id, title, desc, imageUrl, price, rating, category }) => {
                   })
                 )
               }
-              className="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-4 px-4 rounded-t-md"
+              className="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold p-2 rounded-t-md"
             >
               Add to Cart
             </button>
 
-            <div className="flex justify-between py-2 bg-slate-300 px-2 rounded-b-md mt-2">
+            <div className="flex justify-between py-2 px-2 rounded-b-md mt-2">
               <img
                 onClick={() => {
                   dispatch(itemActions.deleteItem(id));
                 }}
                 src={assets.recyclebin}
                 alt=""
-                className="w-10 h-10 object-contain border-2 border-blue-500 hover:border-yellow-500 p-1 rounded-full"
+                className="w-10 h-10 object-contain border-2 hover:border-yellow-500 p-2 rounded-full"
               />
               <img
                 onClick={() => {
@@ -136,7 +136,7 @@ const ItemCard = ({ id, title, desc, imageUrl, price, rating, category }) => {
                 }}
                 src={assets.pencil}
                 alt=""
-                className="w-10 h-10 object-contain border-2 border-blue-500 hover:border-yellow-500 p-1 rounded-full"
+                className="w-10 h-10 object-contain border-2 hover:border-yellow-500 p-1 rounded-full"
               />
             </div>
           </div>
